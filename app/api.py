@@ -72,7 +72,7 @@ def process_from_supabase(payload: dict):
         for i, chunk in enumerate(page_chunks):
             transformed_chunks.append({
                 "document_id": document_id,
-                "index": i,
+                "index": len(transformed_chunks),  # global chunk index across pages
                 "content": chunk["text"],
                 "type": determine_chunk_type(chunk["text"]),
                 "pageNumber": chunk["page"],
